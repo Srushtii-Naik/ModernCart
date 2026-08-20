@@ -1,0 +1,382 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Electronics",
+      "slug": "electronics",
+      "icon": "fa-laptop",
+      "description": ""
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Fashion",
+      "slug": "fashion",
+      "icon": "fa-shirt",
+      "description": ""
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+      "name": "Home & Living",
+      "slug": "home-living",
+      "icon": "fa-couch",
+      "description": ""
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 4,
+    "fields": {
+      "name": "Sports & Outdoors",
+      "slug": "sports-outdoors",
+      "icon": "fa-dumbbell",
+      "description": ""
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 5,
+    "fields": {
+      "name": "Beauty & Personal Care",
+      "slug": "beauty-personal-care",
+      "icon": "fa-spa",
+      "description": ""
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "name": "Wireless Noise-Cancelling Headphones",
+      "slug": "wireless-noise-cancelling-headphones",
+      "category": 1,
+      "description": "Immerse yourself in rich, detailed sound with 40-hour battery life, plush memory-foam ear cushions and adaptive active noise cancellation that adjusts to your environment in real time.",
+      "short_description": "Premium over-ear headphones with active noise cancellation.",
+      "features": "Active Noise Cancellation\nWireless Bluetooth 5.3\n40-hour battery life\nQuick charge: 10 min = 5 hours\nBuilt-in mic for calls",
+      "price": "7999.00",
+      "old_price": "9999.00",
+      "image": "products/wireless-noise-cancelling-headphones_GfxTysu.png",
+      "stock": 48,
+      "rating": "4.7",
+      "reviews_count": 328,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "name": "Smart Fitness Watch",
+      "slug": "smart-fitness-watch",
+      "category": 1,
+      "description": "A sleek fitness companion with a bright AMOLED display, continuous heart-rate monitoring, sleep tracking and 15 built-in sport modes. Water resistant up to 50 metres.",
+      "short_description": "Track workouts, sleep and heart rate around the clock.",
+      "features": "AMOLED touch display\n7-day battery life\nHeart rate & SpO2 monitor\n15 sport modes\n5 ATM water resistance",
+      "price": "5499.00",
+      "old_price": null,
+      "image": "products/smart-fitness-watch.png",
+      "stock": 15,
+      "rating": "4.5",
+      "reviews_count": 214,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "name": "Portable Bluetooth Speaker",
+      "slug": "portable-bluetooth-speaker",
+      "category": 1,
+      "description": "Take your music anywhere with this rugged, IPX7 waterproof speaker delivering deep bass and crisp highs, plus 12 hours of playtime on a single charge.",
+      "short_description": "Compact speaker with room-filling 360° sound.",
+      "features": "360° immersive sound\nIPX7 waterproof\n12-hour battery\nBuilt-in power bank\nPair two speakers for stereo",
+      "price": "2499.00",
+      "old_price": "3199.00",
+      "image": "products/portable-bluetooth-speaker.png",
+      "stock": 9,
+      "rating": "4.4",
+      "reviews_count": 156,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "name": "Mechanical Keyboard",
+      "slug": "mechanical-keyboard",
+      "category": 1,
+      "description": "A responsive mechanical keyboard with hot-swappable switches, per-key RGB backlighting and a durable aluminum frame built for thousands of hours of typing.",
+      "short_description": "Tactile mechanical keyboard for work and gaming.",
+      "features": "Hot-swappable switches\nPer-key RGB lighting\nAluminum top plate\nUSB-C detachable cable\nN-key rollover",
+      "price": "4299.00",
+      "old_price": null,
+      "image": "products/mechanical-keyboard.png",
+      "stock": 55,
+      "rating": "4.6",
+      "reviews_count": 189,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "name": "4K Action Camera",
+      "slug": "4k-action-camera",
+      "category": 1,
+      "description": "Shoot smooth 4K60 footage with advanced image stabilization, a rugged waterproof shell and a companion app for instant editing and sharing.",
+      "short_description": "Capture stunning 4K adventures, waterproof to 10m.",
+      "features": "4K60 video recording\nBuilt-in image stabilization\nWaterproof to 10m\nVoice control\nWi-Fi & Bluetooth sharing",
+      "price": "8999.00",
+      "old_price": "10999.00",
+      "image": "products/camera.png",
+      "stock": 25,
+      "rating": "4.3",
+      "reviews_count": 97,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "name": "Classic Denim Jacket",
+      "slug": "classic-denim-jacket",
+      "category": 2,
+      "description": "A wardrobe staple crafted from premium washed denim with a comfortable regular fit, sturdy brass buttons and a soft cotton lining.",
+      "short_description": "Timeless denim jacket for every season.",
+      "features": "100% premium cotton denim\nRegular fit\nBrass button closure\nMachine washable\nAvailable in 5 sizes",
+      "price": "2999.00",
+      "old_price": "3999.00",
+      "image": "products/classic-denim-jacket.png",
+      "stock": 23,
+      "rating": "4.5",
+      "reviews_count": 142,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+      "name": "Running Sneakers",
+      "slug": "running-sneakers",
+      "category": 2,
+      "description": "Engineered with a breathable knit upper and responsive cushioned midsole, these sneakers keep you comfortable through every mile.",
+      "short_description": "Lightweight sneakers built for everyday runs.",
+      "features": "Breathable knit upper\nResponsive foam midsole\nDurable rubber outsole\nReflective details\nLightweight design",
+      "price": "3499.00",
+      "old_price": null,
+      "image": "products/running-sneakers.png",
+      "stock": 22,
+      "rating": "4.6",
+      "reviews_count": 261,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+      "name": "Leather Crossbody Bag",
+      "slug": "leather-crossbody-bag",
+      "category": 2,
+      "description": "A minimalist crossbody bag made from full-grain leather, featuring multiple compartments and an adjustable strap for all-day comfort.",
+      "short_description": "Handcrafted leather bag for everyday essentials.",
+      "features": "Full-grain leather\nAdjustable strap\nMultiple compartments\nMagnetic closure\nFits 8\" tablets",
+      "price": "3299.00",
+      "old_price": "4199.00",
+      "image": "products/leather-crossbody-bag.png",
+      "stock": 16,
+      "rating": "4.4",
+      "reviews_count": 88,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 9,
+    "fields": {
+      "name": "Classic Aviator Sunglasses",
+      "slug": "classic-aviator-sunglasses",
+      "category": 2,
+      "description": "These aviator sunglasses combine a lightweight metal frame with polarized, UV400-protected lenses for clear vision on sunny days.",
+      "short_description": "UV-protected aviators with a timeless silhouette.",
+      "features": "Polarized lenses\nUV400 protection\nLightweight metal frame\nSpring hinges\nIncludes protective case",
+      "price": "1599.00",
+      "old_price": null,
+      "image": "products/classic-aviator-sunglasses.png",
+      "stock": 55,
+      "rating": "4.2",
+      "reviews_count": 73,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 10,
+    "fields": {
+      "name": "Minimalist Table Lamp",
+      "slug": "minimalist-table-lamp",
+      "category": 3,
+      "description": "A softly diffused, dimmable table lamp with a fabric shade and solid wood base — designed to bring a calm, warm glow to any room.",
+      "short_description": "Warm ambient lighting with a modern silhouette.",
+      "features": "Dimmable warm LED\nSolid wood base\nFabric shade\nTouch control\nEnergy efficient",
+      "price": "1899.00",
+      "old_price": "2399.00",
+      "image": "products/minimalist-table-lamp.png",
+      "stock": 14,
+      "rating": "4.6",
+      "reviews_count": 118,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 11,
+    "fields": {
+      "name": "Ceramic Dinnerware Set (16-piece)",
+      "slug": "ceramic-dinnerware-set-16-piece",
+      "category": 3,
+      "description": "This 16-piece stoneware dinnerware set brings understated elegance to your table, with a durable glaze that resists chips and stains.",
+      "short_description": "Elegant stoneware set for 4, dishwasher safe.",
+      "features": "Service for 4\nChip-resistant glaze\nMicrowave & dishwasher safe\nStackable design\nNeutral matte finish",
+      "price": "3799.00",
+      "old_price": null,
+      "image": "products/ceramic-dinnerware-set-16-piece.png",
+      "stock": 51,
+      "rating": "4.5",
+      "reviews_count": 64,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 12,
+    "fields": {
+      "name": "Memory Foam Pillow (Set of 2)",
+      "slug": "memory-foam-pillow-set-of-2",
+      "category": 3,
+      "description": "Ergonomically contoured memory foam pillows that relieve neck and shoulder pressure, wrapped in a breathable, removable cover.",
+      "short_description": "Contoured support for a better night’s sleep.",
+      "features": "Contoured memory foam\nBreathable cooling cover\nRemovable, washable cover\nHypoallergenic\nSet of 2",
+      "price": "1499.00",
+      "old_price": "1999.00",
+      "image": "products/memory-foam-pillow-set-of-2.png",
+      "stock": 55,
+      "rating": "4.3",
+      "reviews_count": 201,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 13,
+    "fields": {
+      "name": "Adjustable Dumbbell Set",
+      "slug": "adjustable-dumbbell-set",
+      "category": 4,
+      "description": "Replace an entire rack of weights with this single adjustable dumbbell set, letting you dial in the exact resistance for every exercise.",
+      "short_description": "Space-saving dumbbells that adjust from 2.5–24kg.",
+      "features": "Adjustable 2.5kg–24kg per dumbbell\nQuick-turn dial system\nCompact storage tray\nDurable steel plates\nNon-slip grip handle",
+      "price": "6499.00",
+      "old_price": "7999.00",
+      "image": "products/adjustable-dumbbell-set.png",
+      "stock": 42,
+      "rating": "4.7",
+      "reviews_count": 175,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 14,
+    "fields": {
+      "name": "Yoga Mat Pro",
+      "slug": "yoga-mat-pro",
+      "category": 4,
+      "description": "A high-density, extra-thick yoga mat with a textured non-slip surface on both sides, offering superior cushioning for joints during practice.",
+      "short_description": "Extra-thick, non-slip mat for yoga and pilates.",
+      "features": "6mm extra-thick cushioning\nDouble-sided non-slip texture\nLightweight & portable\nIncludes carry strap\nEco-friendly TPE material",
+      "price": "1299.00",
+      "old_price": null,
+      "image": "data:image/webp;base64,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",
+      "stock": 13,
+      "rating": "4.5",
+      "reviews_count": 249,
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 15,
+    "fields": {
+      "name": "Vitamin C Brightening Serum",
+      "slug": "vitamin-c-brightening-serum",
+      "category": 5,
+      "description": "A lightweight, fast-absorbing serum formulated with stabilized Vitamin C and hyaluronic acid to visibly brighten skin and lock in hydration.",
+      "short_description": "Daily serum for a brighter, more even skin tone.",
+      "features": "10% stabilized Vitamin C\nHyaluronic acid hydration\nLightweight, non-greasy\nSuitable for all skin types\nCruelty-free",
+      "price": "899.00",
+      "old_price": "1199.00",
+      "image": "products/vitamin-c-brightening-serum.png",
+      "stock": 45,
+      "rating": "4.4",
+      "reviews_count": 312,
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-01-15T10:00:00Z"
+    }
+  }
+]

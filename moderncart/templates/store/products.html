@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}All Products - ModernCart{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>All Products</h1>
+        <p>{{ total_results }} product{{ total_results|pluralize }} available</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container products-layout">
+
+        <aside class="filters-sidebar">
+            <form method="get" action="{% url 'store:products' %}" id="filterForm">
+                <div class="filter-block">
+                    <label class="filter-label">Search</label>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" name="q" value="{{ query }}" placeholder="Search products...">
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <label class="filter-label">Category</label>
+                    <select name="category" class="form-input" onchange="document.getElementById('filterForm').submit()">
+                        <option value="">All Categories</option>
+                        {% for category in categories %}
+                            <option value="{{ category.slug }}" {% if category.slug == selected_category %}selected{% endif %}>{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-block">
+                    <label class="filter-label">Price Range (₹)</label>
+                    <div class="price-range-inputs">
+                        <input type="number" name="min_price" value="{{ min_price }}" placeholder="Min" class="form-input">
+                        <span>-</span>
+                        <input type="number" name="max_price" value="{{ max_price }}" placeholder="Max" class="form-input">
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <label class="filter-label">Sort By</label>
+                    <select name="sort" class="form-input" onchange="document.getElementById('filterForm').submit()">
+                        <option value="newest" {% if sort == 'newest' %}selected{% endif %}>Newest</option>
+                        <option value="price_low" {% if sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+                        <option value="price_high" {% if sort == 'price_high' %}selected{% endif %}>Price: High to Low</option>
+                        <option value="rating" {% if sort == 'rating' %}selected{% endif %}>Top Rated</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+                <a href="{% url 'store:products' %}" class="btn btn-outline btn-block filter-clear">Clear All</a>
+            </form>
+        </aside>
+
+        <div class="products-main">
+            {% if products %}
+            <div class="product-grid">
+                {% for product in products %}
+                    {% include 'includes/product_card.html' %}
+                {% endfor %}
+            </div>
+
+            {% if page_obj.paginator.num_pages > 1 %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}&category={{ selected_category }}&sort={{ sort }}" class="page-link"><i class="fa-solid fa-chevron-left"></i></a>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    <a href="?page={{ num }}&q={{ query }}&category={{ selected_category }}&sort={{ sort }}" class="page-link {% if num == page_obj.number %}active{% endif %}">{{ num }}</a>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&q={{ query }}&category={{ selected_category }}&sort={{ sort }}" class="page-link"><i class="fa-solid fa-chevron-right"></i></a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% else %}
+            <div class="empty-state">
+                <i class="fa-solid fa-box-open"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search or filters.</p>
+                <a href="{% url 'store:products' %}" class="btn btn-primary">Clear Filters</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+<header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+        <a href="{% url 'store:home' %}" class="navbar-logo">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Modern<strong>Cart</strong></span>
+        </a>
+
+        <nav class="navbar-links" id="navbarLinks">
+            <a href="{% url 'store:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+            <a href="{% url 'store:products' %}" class="nav-link {% if request.resolver_match.url_name == 'products' %}active{% endif %}">Products</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'accounts:dashboard' %}" class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">Dashboard</a>
+            {% endif %}
+
+            <div class="navbar-actions navbar-actions-mobile">
+                <a href="{% url 'store:cart' %}" class="nav-icon-link">
+                    <i class="fa-solid fa-cart-shopping"></i> Cart
+                    {% if cart_item_count > 0 %}<span class="cart-badge">{{ cart_item_count }}</span>{% endif %}
+                </a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'accounts:logout' %}" class="nav-link">Logout</a>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="nav-link">Login</a>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-sm">Register</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <div class="navbar-actions navbar-actions-desktop">
+            <a href="{% url 'store:cart' %}" class="nav-icon-link" title="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                {% if cart_item_count > 0 %}<span class="cart-badge">{{ cart_item_count }}</span>{% endif %}
+            </a>
+            {% if user.is_authenticated %}
+                <div class="navbar-user-menu">
+                    <button class="nav-icon-link user-toggle">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>{{ user.first_name|default:user.username }}</span>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="{% url 'accounts:dashboard' %}"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+                        <a href="{% url 'accounts:logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <a href="{% url 'accounts:login' %}" class="btn btn-outline btn-sm">Login</a>
+                <a href="{% url 'accounts:register' %}" class="btn btn-primary btn-sm">Register</a>
+            {% endif %}
+        </div>
+
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>

@@ -1,0 +1,47 @@
+<div class="product-card">
+    <a href="{{ product.get_absolute_url }}" class="product-card-image">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
+        {% if product.discount_percent > 0 %}
+            <span class="badge badge-discount">-{{ product.discount_percent }}%</span>
+        {% endif %}
+        {% if not product.in_stock %}
+            <span class="badge badge-outofstock">Out of Stock</span>
+        {% endif %}
+    </a>
+    <div class="product-card-body">
+        <span class="product-card-category">{{ product.category.name }}</span>
+        <a href="{{ product.get_absolute_url }}" class="product-card-title">{{ product.name }}</a>
+        <p class="product-card-desc">{{ product.short_description|default:product.description|truncatewords:12 }}</p>
+
+        <div class="product-card-rating">
+            {% for i in "12345" %}
+                {% if forloop.counter <= product.rating_full_stars %}
+                    <i class="fa-solid fa-star"></i>
+                {% elif forloop.counter == product.rating_full_stars|add:1 and product.rating_has_half_star %}
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                {% else %}
+                    <i class="fa-regular fa-star"></i>
+                {% endif %}
+            {% endfor %}
+            <span class="rating-value">{{ product.rating }} ({{ product.reviews_count }})</span>
+        </div>
+
+        <div class="product-card-footer">
+            <div class="product-card-price">
+                <span class="price-current">₹{{ product.price }}</span>
+                {% if product.old_price %}<span class="price-old">₹{{ product.old_price }}</span>{% endif %}
+            </div>
+        </div>
+
+        <div class="product-card-actions">
+            <form action="{% url 'store:cart_add' product.id %}" method="post" class="add-to-cart-form">
+                {% csrf_token %}
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="btn btn-primary btn-sm btn-block" {% if not product.in_stock %}disabled{% endif %}>
+                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+            </form>
+            <a href="{{ product.get_absolute_url }}" class="btn btn-outline btn-sm btn-block">View Details</a>
+        </div>
+    </div>
+</div>

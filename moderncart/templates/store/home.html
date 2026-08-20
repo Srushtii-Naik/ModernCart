@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}ModernCart - Shop Smart. Live Better.{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <span class="eyebrow">Welcome to ModernCart</span>
+            <h1>Shop Smart. <br>Live Better.</h1>
+            <p>Thoughtfully curated products, transparent pricing, and a shopping experience
+               designed to feel effortless. Discover what you need, minus the noise.</p>
+            <div class="hero-actions">
+                <a href="{% url 'store:products' %}" class="btn btn-primary btn-lg">
+                    Shop Now <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#categories" class="btn btn-outline btn-lg">Browse Categories</a>
+            </div>
+            <div class="hero-stats">
+                <div><strong>15+</strong><span>Curated Products</span></div>
+                <div><strong>4.7/5</strong><span>Average Rating</span></div>
+                <div><strong>24/7</strong><span>Customer Support</span></div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card hero-card-1">
+                <i class="fa-solid fa-truck-fast"></i>
+                <div><strong>Free Shipping</strong><span>On orders above ₹999</span></div>
+            </div>
+            <div class="hero-card hero-card-2">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div><strong>Secure Checkout</strong><span>100% protected payments</span></div>
+            </div>
+            <div class="hero-image-block"><i class="fa-solid fa-bag-shopping"></i></div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="categories">
+    <div class="container">
+        <div class="section-header">
+            <h2>Shop by Category</h2>
+            <p>Find exactly what you're looking for</p>
+        </div>
+        <div class="category-grid">
+            {% for category in categories %}
+            <a href="{{ category.get_absolute_url }}" class="category-card">
+                <div class="category-icon"><i class="fa-solid {{ category.icon|default:'fa-shapes' }}"></i></div>
+                <span>{{ category.name }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section section-muted">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Products</h2>
+            <p>Hand-picked favorites our customers love</p>
+        </div>
+        <div class="product-grid">
+            {% for product in featured_products %}
+                {% include 'includes/product_card.html' %}
+            {% empty %}
+                <p class="empty-text">No featured products yet — check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Latest Arrivals</h2>
+            <p>Fresh additions to the ModernCart catalog</p>
+        </div>
+        <div class="product-grid">
+            {% for product in latest_products %}
+                {% include 'includes/product_card.html' %}
+            {% empty %}
+                <p class="empty-text">No products yet — check back soon!</p>
+            {% endfor %}
+        </div>
+        <div class="section-cta">
+            <a href="{% url 'store:products' %}" class="btn btn-outline btn-lg">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<section class="section newsletter-section">
+    <div class="container newsletter-inner">
+        <div>
+            <h2>Stay in the loop</h2>
+            <p>Get updates on new arrivals and exclusive offers.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="return false;">
+            <input type="email" placeholder="Enter your email" class="form-input" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

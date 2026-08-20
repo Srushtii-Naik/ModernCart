@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Order Confirmed - ModernCart{% endblock %}
+
+{% block content %}
+<section class="section order-success-section">
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h1>Thank you, {{ order.full_name }}!</h1>
+            <p class="success-subtitle">Your order has been placed successfully.</p>
+
+            <div class="order-number-box">
+                <span>Order Number</span>
+                <strong>{{ order.order_number }}</strong>
+            </div>
+
+            <div class="order-mini-summary">
+                <div class="order-mini-row">
+                    <span>Payment Method</span>
+                    <span>{{ order.get_payment_method_display }}</span>
+                </div>
+                <div class="order-mini-row">
+                    <span>Total Amount</span>
+                    <span>₹{{ order.total_amount }}</span>
+                </div>
+                <div class="order-mini-row">
+                    <span>Delivering To</span>
+                    <span>{{ order.city }}, {{ order.state }}</span>
+                </div>
+            </div>
+
+            <p class="success-note">A confirmation email will be sent to <strong>{{ order.email }}</strong>. You can track this order anytime from your dashboard.</p>
+
+            <div class="success-actions">
+                <a href="{% url 'store:products' %}" class="btn btn-primary btn-lg">Continue Shopping</a>
+                <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline btn-lg">View My Orders</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

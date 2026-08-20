@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }} - ModernCart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav class="breadcrumb">
+        <a href="{% url 'store:home' %}">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="{% url 'store:products' %}">Products</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="{% url 'store:products' %}?category={{ product.category.slug }}">{{ product.category.name }}</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>{{ product.name }}</span>
+    </nav>
+</div>
+
+<section class="section product-detail-section">
+    <div class="container product-detail-grid">
+        <div class="product-detail-image">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% if product.discount_percent > 0 %}<span class="badge badge-discount">-{{ product.discount_percent }}%</span>{% endif %}
+        </div>
+
+        <div class="product-detail-info">
+            <span class="product-card-category">{{ product.category.name }}</span>
+            <h1>{{ product.name }}</h1>
+
+            <div class="product-card-rating detail-rating">
+                {% for i in "12345" %}
+                    {% if forloop.counter <= product.rating_full_stars %}
+                        <i class="fa-solid fa-star"></i>
+                    {% elif forloop.counter == product.rating_full_stars|add:1 and product.rating_has_half_star %}
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    {% else %}
+                        <i class="fa-regular fa-star"></i>
+                    {% endif %}
+                {% endfor %}
+                <span class="rating-value">{{ product.rating }} ({{ product.reviews_count }} reviews)</span>
+            </div>
+
+            <div class="product-detail-price">
+                <span class="price-current">₹{{ product.price }}</span>
+                {% if product.old_price %}<span class="price-old">₹{{ product.old_price }}</span>{% endif %}
+                {% if product.in_stock %}
+                    <span class="stock-badge in-stock"><i class="fa-solid fa-circle-check"></i> In Stock ({{ product.stock }} left)</span>
+                {% else %}
+                    <span class="stock-badge out-stock"><i class="fa-solid fa-circle-xmark"></i> Out of Stock</span>
+                {% endif %}
+            </div>
+
+            <p class="product-detail-desc">{{ product.description }}</p>
+
+            {% if product.feature_list %}
+            <div class="product-features">
+                <h4>Key Features</h4>
+                <ul>
+                    {% for feature in product.feature_list %}
+                        <li><i class="fa-solid fa-check"></i> {{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <form action="{% url 'store:cart_add' product.id %}" method="post" class="add-to-cart-form-detail">
+                {% csrf_token %}
+                <div class="quantity-selector">
+                    <button type="button" class="qty-btn qty-minus"><i class="fa-solid fa-minus"></i></button>
+                    <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" class="qty-input">
+                    <button type="button" class="qty-btn qty-plus"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg" {% if not product.in_stock %}disabled{% endif %}>
+                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+            </form>
+
+            <div class="trust-badges">
+                <div><i class="fa-solid fa-truck"></i> Fast Delivery</div>
+                <div><i class="fa-solid fa-rotate-left"></i> Easy Returns</div>
+                <div><i class="fa-solid fa-lock"></i> Secure Payment</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if related_products %}
+<section class="section section-muted">
+    <div class="container">
+        <div class="section-header">
+            <h2>Related Products</h2>
+            <p>You might also like</p>
+        </div>
+        <div class="product-grid">
+            {% for product in related_products %}
+                {% include 'includes/product_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
